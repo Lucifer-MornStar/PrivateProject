@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class SignUpBodyDto {
+export class SignInBodyDto {
   @ApiProperty({
     example: 'example@gmail.com',
   })
