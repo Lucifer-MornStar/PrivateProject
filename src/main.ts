@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import * as process from 'process';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as cookieParser from 'cookie-parser';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   try {
@@ -17,6 +18,7 @@ async function bootstrap() {
     SwaggerModule.setup('api', app, document);
 
     app.use(cookieParser());
+    app.useGlobalPipes(new ValidationPipe());
 
     await app.listen(PORT, () => {
       console.log('start');
