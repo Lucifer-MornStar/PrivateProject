@@ -9,4 +9,7 @@ export class GetSessionInfoDto {
     example: 'example@gmail.com',
   })
   email: string;
+
+  iat: number;
+  exp: number;
 }
