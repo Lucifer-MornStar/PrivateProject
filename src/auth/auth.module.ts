@@ -13,7 +13,7 @@ import * as process from 'process';
     JwtModule.register({
       global: true,
       secret: process.env.SECRET,
-      signOptions: { expiresIn: '1d '}
+      signOptions: { expiresIn: '1d' },
     }),
   ],
   providers: [AuthService, PasswordService, CookieService],

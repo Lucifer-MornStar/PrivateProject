@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { randomBytes,  pbkdf2Sync} from 'crypto';
+import { randomBytes, pbkdf2Sync } from 'crypto';
 
 @Injectable()
 export class PasswordService {
