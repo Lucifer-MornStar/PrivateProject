@@ -60,10 +60,7 @@ export class AuthController {
     this.cookieService.removeToken(res);
   }
 
-  @Get('session')
-  @ApiOkResponse({
-    type: GetSessionInfoDto,
-  })
+
   @Get('session')
   @ApiOkResponse({
     type: GetSessionInfoDto,
