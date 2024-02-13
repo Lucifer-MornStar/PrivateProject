@@ -1,0 +1,32 @@
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { PatchAccountDto } from './dto/PatchAccount.dto';
+import { DbService } from '../db/db.service';
+
+@Injectable()
+export class AccountService {
+  constructor(private db: DbService) {}
+
+  async create(userId: number) {
+    return this.db.account.create({
+      data: { ownerId: userId, isBlockingEnabled: false },
+    });
+  }
+
+  async getAccount(userId: number) {
+    const account = await this.db.account.findFirst({
+      where: { ownerId: userId },
+    });
+    if (account) {
+      return account;
+    } else {
+      throw new UnauthorizedException();
+    }
+  }
+
+  async patchAccount(userId: number, patch: PatchAccountDto) {
+    return this.db.account.update({
+      where: { ownerId: userId },
+      data: { ...patch },
+    });
+  }
+}
