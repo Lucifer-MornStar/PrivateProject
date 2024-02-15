@@ -8,4 +8,5 @@ export class AddBlockItemDto {
   })
   @IsIn([$Enums.BlockItemType.Website, $Enums.BlockItemType.KeyWord])
   type: $Enums.BlockItemType;
+  data: string;
 }

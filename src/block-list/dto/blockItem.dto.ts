@@ -8,6 +8,8 @@ export class BlockItemDto {
     enum: [$Enums.BlockItemType.KeyWord, $Enums.BlockItemType.Website],
   })
   type: $Enums.BlockItemType;
+
   data: string;
+
   createdAt: Date;
 }
